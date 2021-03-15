@@ -39,6 +39,7 @@ public class BookLoanDAORepository implements BookLoanDAO{
         return bookLoan;
     }
 
+
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
     public BookLoan update(BookLoan bookLoan) {
@@ -47,7 +48,7 @@ public class BookLoanDAORepository implements BookLoanDAO{
 
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
-    public void delete(Integer bookLoanId) {
+    public boolean delete(Integer bookLoanId) {
         BookLoan toDelete = findById(bookLoanId);
             if (toDelete != null) {
                 em.remove(toDelete);
@@ -55,6 +56,7 @@ public class BookLoanDAORepository implements BookLoanDAO{
             } else {
                 throw new IllegalArgumentException("Book loan " + bookLoanId + " cannot be found");
             }
-        }
+        return false;
+    }
     }
 

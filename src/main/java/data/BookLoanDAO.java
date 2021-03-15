@@ -9,7 +9,7 @@ public interface BookLoanDAO {
     Collection<BookLoan> findAll();
     BookLoan create(BookLoan bookLoan);
     BookLoan update(BookLoan bookLoan);
-    void delete(Integer bookLoanId);
+    boolean delete(Integer bookLoanId);
 
 
 }
