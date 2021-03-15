@@ -49,15 +49,15 @@ public class BookDAORepository implements BookDAO{
 
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
-    public boolean delete(Integer bookId) {
+    public void delete(Integer bookId) {
         Book toDelete = findById(bookId);
         if (toDelete != null) {
             em.remove(toDelete);
+            System.out.println("Book " + bookId + " has been removed");
         } else {
             throw new IllegalArgumentException("Book was not found");
         }
-        toDelete = findById(bookId);
-        return toDelete == null;
+
     }
 
 }

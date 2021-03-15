@@ -47,15 +47,14 @@ public class BookLoanDAORepository implements BookLoanDAO{
 
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
-    public boolean delete(Integer bookLoanId) {
+    public void delete(Integer bookLoanId) {
         BookLoan toDelete = findById(bookLoanId);
             if (toDelete != null) {
                 em.remove(toDelete);
+                System.out.println("Book loan " + bookLoanId + " has been removed");
             } else {
-                throw new IllegalArgumentException("Book loan cannot be found");
+                throw new IllegalArgumentException("Book loan " + bookLoanId + " cannot be found");
             }
-            toDelete = findById(bookLoanId);
-            return toDelete == null;
         }
     }
 

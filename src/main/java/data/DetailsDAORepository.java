@@ -47,14 +47,14 @@ public class DetailsDAORepository implements DetailsDAO {
 
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
-    public boolean delete(Integer detailsId) {
+    public void delete(Integer detailsId) {
         Details toDelete = findById(detailsId);
         if (toDelete != null) {
             em.remove(toDelete);
+            System.out.println("Details " + detailsId + " has been removed");
         } else {
             throw new IllegalArgumentException("Details was not found");
         }
-        toDelete = findById(detailsId);
-        return toDelete == null;
+
     }
 }

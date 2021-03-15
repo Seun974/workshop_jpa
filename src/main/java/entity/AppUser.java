@@ -99,5 +99,7 @@ public class AppUser {
                 ", regDate=" + regDate +
                 '}';
     }
+
+
 }
 

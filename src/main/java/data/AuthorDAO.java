@@ -9,7 +9,7 @@ public interface AuthorDAO {
         Collection<Author> findAll();
         Author create(Author author);
         Author update(Author author);
-        boolean delete(Integer authorId);
+        void delete(Integer authorId);
 
 
 

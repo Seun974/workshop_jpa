@@ -9,5 +9,5 @@ public interface BookDAO {
     Collection<Book>findAll();
     Book create(Book book);
     Book update(Book book);
-    boolean delete(Integer bookId); //take not that this is void and it returns nothing
+    void delete(Integer bookId);
 }

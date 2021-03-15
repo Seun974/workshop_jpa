@@ -49,14 +49,14 @@ public class AppUserDAORepository implements AppUserDAO{
 
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
-    public boolean delete(Integer appUserId) {
+    public void delete(Integer appUserId) {
         AppUser toDelete = findById(appUserId);
         if(toDelete != null){
             em.remove(toDelete);
+            System.out.println("App User " + appUserId + " has been removed");
         }else{
-            throw new IllegalArgumentException("App user could not be found");
+            throw new IllegalArgumentException("App user " + appUserId + " not be found");
         }
-        toDelete = findById(appUserId);
-        return toDelete == null;
+
     }
 }
