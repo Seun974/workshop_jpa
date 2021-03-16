@@ -1,6 +1,6 @@
-package data;
+package se.lexicon.samuel.workshop_jpa.data;
 
-import entity.Author;
+import se.lexicon.samuel.workshop_jpa.entity.Author;
 
 import java.util.Collection;
 

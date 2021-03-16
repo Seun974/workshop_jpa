@@ -1,6 +1,6 @@
-package entity;
+package se.lexicon.samuel.workshop_jpa.entity;
 
-import sun.security.util.Length;
+
 
 import javax.persistence.*;
 import java.time.LocalDate;

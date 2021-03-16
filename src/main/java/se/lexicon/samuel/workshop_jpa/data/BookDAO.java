@@ -1,6 +1,6 @@
-package data;
+package se.lexicon.samuel.workshop_jpa.data;
 
-import entity.Book;
+import se.lexicon.samuel.workshop_jpa.entity.Book;
 
 import java.util.Collection;
 

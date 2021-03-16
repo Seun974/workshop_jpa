@@ -1,6 +1,6 @@
-package data;
+package se.lexicon.samuel.workshop_jpa.data;
 
-import entity.Details;
+import se.lexicon.samuel.workshop_jpa.entity.Author;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,52 +9,54 @@ import javax.persistence.EntityManager;
 import java.util.Collection;
 
 @Repository
-public class DetailsDAORepository implements DetailsDAO {
+public class AuthorDAORepository implements AuthorDAO {
 
     private EntityManager em;
 
     @Autowired
-    public DetailsDAORepository(EntityManager em) {
+    public AuthorDAORepository(EntityManager em) {
         this.em = em;
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Details findById(Integer detailsId) {
-        return em.find(Details.class, detailsId);
+    public Author findById(Integer authorId) {
+        return em.find(Author.class, authorId);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Collection<Details> findAll() {
+    public Collection<Author> findAll() {
         return em
-                .createQuery("SELECT details FROM Details details", Details.class)
+                .createQuery("SELECT author FROM Author author", Author.class)
                 .getResultList();
     }
 
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
-    public Details create(Details details) {
-        em.persist(details);
-        return details;
+    public Author create(Author author) {
+        em.persist(author);
+        return author;
     }
 
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
-    public Details update(Details details) {
-        return em.merge(details);
+    public Author update(Author author) {
+        return em.merge(author);
     }
 
     @Override
     @Transactional(rollbackFor = RuntimeException.class)
-    public void delete(Integer detailsId) {
-        Details toDelete = findById(detailsId);
+    public void delete(Integer authorId) {
+        Author toDelete = findById(authorId);
         if (toDelete != null) {
             em.remove(toDelete);
-            System.out.println("Details " + detailsId + " has been removed");
+            System.out.println("Author " + authorId + " has been removed");
         } else {
-            throw new IllegalArgumentException("Details was not found");
+            throw new IllegalArgumentException("Author cannot be found");
         }
-
     }
+
 }
+
+

@@ -1,9 +1,7 @@
-package entity;
+package se.lexicon.samuel.workshop_jpa.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
@@ -27,7 +25,7 @@ public class AppUser {
     @OneToMany(
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
             fetch = FetchType.LAZY,
-            mappedBy = "appUser"
+            mappedBy = "borrower"
     )
     private List<BookLoan> loans;
 

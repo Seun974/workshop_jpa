@@ -1,4 +1,4 @@
-package entity;
+package se.lexicon.samuel.workshop_jpa.entity;
 
 
 import javax.persistence.*;

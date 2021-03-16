@@ -1,10 +1,9 @@
-package entity;
+package se.lexicon.samuel.workshop_jpa.entity;
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-import org.springframework.boot.autoconfigure.web.WebProperties;
+
 
 import javax.persistence.*;
-import java.time.LocalDate;
+
 import java.util.Objects;
 import java.util.Set;
 

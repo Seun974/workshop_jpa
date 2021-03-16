@@ -1,4 +1,4 @@
-package entity;
+package se.lexicon.samuel.workshop_jpa.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -18,13 +18,13 @@ public class BookLoan {
     @ManyToOne(
             cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.MERGE}
     )
-    @JoinColumn(name = "borrower_id")
+    @JoinColumn(name = "borrower_id", table = "book_loan")
     private AppUser borrower;
 
     @ManyToOne(
             cascade = {CascadeType.DETACH, CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.MERGE}
     )
-    @JoinColumn(name = "book_id")
+    @JoinColumn(name = "book_id", table = "book")
     private Book book;
 
     public BookLoan(int loanId, LocalDate loanDate, LocalDate dueDate, boolean returned) {
